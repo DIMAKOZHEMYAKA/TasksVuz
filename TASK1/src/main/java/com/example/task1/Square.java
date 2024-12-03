@@ -1,29 +1,27 @@
 package com.example.task1;
-
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-class Circle extends Shape {
-    private double radius;
+class Square extends Shape {
+    private double side;
     private Color ColorStroke;
 
-    public Circle(Color color,Color ColorStroke, double x, double y, double radius) {
+    public Square(Color color, Color ColorStroke, double x, double y, double side) {
         super(color, x, y);
         this.ColorStroke = ColorStroke;
-        this.radius = radius;
+        this.side = side;
     }
 
     @Override
     double area() {
-        return Math.PI * radius * radius;
+        return side * side;
     }
 
     @Override
     void draw(GraphicsContext gc) {
         gc.setStroke(ColorStroke);
         gc.setFill(color);
-        gc.fillOval(x - radius, y - radius, radius * 2, radius * 2);
-        gc.strokeOval(x - radius, y - radius, radius * 2, radius * 2);
+        gc.fillRect(x, y, side,side);
+        gc.strokeRect(x, y, side,side);
     }
-
 }

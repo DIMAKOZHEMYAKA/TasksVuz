@@ -12,7 +12,7 @@ public class ShapesApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ShapesApplication.class.getResource("TASK1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Shapes");
         stage.setScene(scene);
         stage.show();
     }

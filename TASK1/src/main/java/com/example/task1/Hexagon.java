@@ -5,9 +5,11 @@ import javafx.scene.paint.Color;
 
 class Hexagon extends Shape {
     private double sideLength;
+    private Color ColorStroke;
 
-    public Hexagon(Color color, double x, double y, double sideLength) {
+    public Hexagon(Color color, Color ColorStroke,double x, double y, double sideLength) {
         super(color, x, y);
+        this.ColorStroke = ColorStroke;
         this.sideLength = sideLength;
     }
 
@@ -18,7 +20,8 @@ class Hexagon extends Shape {
 
     @Override
     void draw(GraphicsContext gc) {
-        gc.setStroke(color);
+        gc.setStroke(ColorStroke);
+        gc.setFill(color);
         double angle = Math.PI / 3;
         double[] xPoints = new double[6];
         double[] yPoints = new double[6];
@@ -27,7 +30,7 @@ class Hexagon extends Shape {
             xPoints[i] = x + sideLength * Math.cos(i * angle);
             yPoints[i] = y + sideLength * Math.sin(i * angle);
         }
-
+        gc.fillPolygon(xPoints, yPoints, 6);
         gc.strokePolygon(xPoints, yPoints, 6);
     }
 
